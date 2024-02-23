@@ -1,0 +1,60 @@
+@mixin centered-flex($display: flex, $justify: center, $align: center) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin sizes($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin mobile-min-only {
+  @media screen and (max-width: #{$mobile-min-only-screen}) {
+    @content;
+  }
+}
+
+@mixin mobile-min {
+  @media screen and (min-width: #{$mobile-min-screen}) {
+    @content;
+  }
+}
+
+@mixin mobile-max {
+  @media screen and (max-width: #{$mobile-max-screen}) {
+    @content;
+  }
+}
+
+@mixin tablet-min {
+  @media screen and (min-width: #{$tablet-min-screen}) {
+    @content;
+  }
+}
+
+@mixin tablet-max {
+  @media screen and (max-width: #{$tablet-max-screen}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: #{$tablet-min-screen}) and (max-width: #{$tablet-max-screen}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop-screen}) {
+    @content;
+  }
+}
+
+@mixin bg-image {
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

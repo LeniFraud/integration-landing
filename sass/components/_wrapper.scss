@@ -1,0 +1,40 @@
+.wrapper {
+  background-image: url("../images/hero-glow-mob@1x.png"),
+    url("../images/connections-glow-mob@1x.png"),
+    url("../images/integrations-glow-mob@1x.png");
+  background-repeat: no-repeat;
+  background-position: center 275px, center 1100px, right 50% bottom 505px;
+  background-size: 300px auto, 550px auto, 650px auto;
+
+  @include bg-image {
+    background-image: url("../images/hero-glow-mob@2x.png"),
+      url("../images/connections-glow-mob@2x.png"),
+      url("../images/integrations-glow-mob@2x.png");
+  }
+
+  @include mobile-min {
+    background-position: center 275px, center 1123px, right 50% bottom 570px;
+    background-size: 425px auto, 600px auto, 709px auto;
+  }
+
+  @include tablet-min {
+    background-image: url("../images/hero-glow-desk@1x.png"),
+      url("../images/connections-glow-desk@1x.png"),
+      url("../images/integrations-glow-desk@1x.png");
+    background-position: center 93px,
+      left Max(0px, calc((100vw - 768px) / 2)) top 928px, right 50% bottom 400px;
+    background-size: 700px auto, 550px auto, 850px auto;
+
+    @include bg-image {
+      background-image: url("../images/hero-glow-desk@2x.png"),
+        url("../images/connections-glow-desk@2x.png"),
+        url("../images/integrations-glow-desk@2x.png");
+    }
+  }
+
+  @include desktop {
+    background-position: center 93px,
+      left Max(0px, calc((100vw - 1440px) / 2)) top 1368px, right 50% bottom 0;
+    background-size: 1225px auto, 1021px auto, 950px auto;
+  }
+}

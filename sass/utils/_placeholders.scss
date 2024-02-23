@@ -1,0 +1,58 @@
+%btn {
+  @include centered-flex();
+  height: 42px;
+  font-family: $title-font, $spare-font;
+  font-size: 14px;
+  line-height: 144%;
+  color: $page-text-color;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #969bb5;
+  border-radius: 31px;
+  transition: background-color $duration $timing-function,
+    border-color $duration $timing-function;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+
+  @include mobile-min {
+    font-size: 18px;
+  }
+
+  @include tablet-min {
+    padding: 8px 20px;
+  }
+}
+
+%title {
+  font-family: $title-font, $spare-font;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: $page-text-color;
+
+  @include tablet-min {
+    font-size: 32px;
+    line-height: 128%;
+  }
+
+  @include desktop {
+    font-size: 36px;
+  }
+}
+
+%subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #eff1ff;
+
+  @include tablet-min {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

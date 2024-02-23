@@ -1,0 +1,150 @@
+.hero__section {
+  padding-top: 40px;
+  padding-bottom: 72px;
+
+  @include tablet-min {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  @include desktop {
+    padding-top: 80px;
+  }
+}
+
+.hero__title {
+  @extend %title;
+  font-weight: 400;
+  line-height: 111%;
+
+  @include mobile-min-only {
+    margin: 0 auto;
+    max-width: 250px;
+  }
+
+  @include mobile-min {
+    font-size: 32px;
+  }
+
+  @include tablet-min {
+    font-size: 38px;
+    text-align: start;
+  }
+
+  @include desktop {
+    font-size: 64px;
+    text-align: start;
+  }
+}
+
+.hero__actions {
+  margin-top: 32px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 8px;
+
+  @include mobile-max {
+    flex-direction: column;
+  }
+
+  @include desktop {
+    margin-top: 40px;
+    margin-bottom: 56px;
+  }
+}
+
+.hero__btn {
+  @extend %btn;
+}
+
+.hero__btn--active {
+  position: relative;
+  z-index: 5;
+  background: $accent-gradient;
+  border: none;
+  transition: color $duration $timing-function;
+
+  &:hover,
+  &:focus {
+    color: $secondary-text-color;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include sizes(100%, 100%);
+    opacity: 0;
+    background: $page-text-color;
+    border-radius: 31px;
+    transition: opacity $duration $timing-function;
+    z-index: -5;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+}
+
+.hero__icon {
+  @include sizes(20px, 20px);
+  stroke: currentColor;
+  fill: transparent;
+
+  @include mobile-min {
+    @include sizes(25px, 24px);
+    margin-left: 10px;
+  }
+
+  @include tablet-min {
+    margin-left: 4px;
+    @include sizes(20px, 20px);
+  }
+}
+
+.hero__box {
+  position: relative;
+  padding: 3px;
+  border-radius: 3px;
+  backdrop-filter: blur(71.25438690185547px);
+  background: $secondary-bg-color;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 3px;
+    border: 0.25px solid transparent;
+    background: $border-gradient border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+
+    @include tablet-min {
+      border-radius: 10px;
+      border: 0.85px solid transparent;
+    }
+  }
+
+  @include tablet-min {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  @include desktop {
+    padding: 10px;
+  }
+}
