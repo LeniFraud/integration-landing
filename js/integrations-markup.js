@@ -1,19 +1,42 @@
 import { puzzle } from "../js/puzzle-data.js";
-
-const isMobile = window.matchMedia(
-  "only screen and (max-width: 767px)"
-).matches;
-const isTablet = window.matchMedia(
-  "only screen and (min-width: 768px) and (max-width: 1439px)"
-).matches;
-const isDesktop = window.matchMedia(
-  "only screen and (min-width: 1440px)"
-).matches;
+import { data } from "./integrations-data.js";
 
 const listRef = document.querySelector(".integrations__list");
-const listItemsRef = listRef.querySelectorAll(".integrations__item");
 
-const addPuzzleIcons = (items) => {
+const makeListBaseMarkup = (items) =>
+  items
+    .map(({ name, description, icon }) => {
+      return `
+        <li class="integrations__item">
+          <a href="" class="integrations__link">
+            <div class="integrations__wrap">
+              <h4 class="integrations__option">
+                <svg class="integrations__icon">
+                  <use href="./images/icons.svg#${icon}"></use>
+                </svg>
+                ${name}
+              </h4>
+              <p class="integrations__desc">${description}</p>
+            </div>
+          </a>
+        </li>`;
+    })
+    .join("");
+
+const addPuzzleIcons = (blocks) => {
+  const isMobile = window.innerWidth < 768;
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1440;
+  const isDesktop = window.innerWidth >= 1440;
+
+  const parser = new DOMParser();
+  const parsedMarkup = parser.parseFromString(
+    makeListBaseMarkup(blocks),
+    "text/html"
+  );
+  const items = [...parsedMarkup.body.children];
+
+  listRef.innerHTML = "";
+
   [...items].forEach((item, idx) => {
     if (isMobile) {
       if (idx % 2 === 1) {
@@ -59,7 +82,13 @@ const addPuzzleIcons = (items) => {
         item.lastChild.classList.add("puzzle__large--bottom");
       }
     }
+
+    listRef.append(item);
   });
 };
 
-addPuzzleIcons(listItemsRef);
+addPuzzleIcons(data);
+
+window.addEventListener("resize", () => {
+  addPuzzleIcons(data);
+});
