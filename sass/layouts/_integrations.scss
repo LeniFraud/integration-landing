@@ -79,12 +79,21 @@
   transition: background-color $duration $timing-function;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #333852;
+    border-bottom: 0.8px solid #333852;
   }
 
   &:hover,
   &:focus {
     background-color: #0d1c3a;
+  }
+
+  &:hover .puzzle,
+  &:focus .puzzle {
+    fill: #0d1c3a;
+
+    & path:last-child {
+      stroke: #0d1c3a;
+    }
   }
 
   @include tablet-min {
@@ -128,12 +137,6 @@
     padding: 10px 8px;
     color: $page-text-color;
     text-decoration: none;
-    //   transition: background-color $duration $timing-function;
-
-    //   &:hover,
-    //   &:focus {
-    //     background-color: #0d1c3a;
-    //   }
 
     @include mobile-min-only {
       height: 80px;
@@ -144,11 +147,8 @@
     }
 
     @include tablet-min {
-      height: 138px;
-    }
-
-    @include desktop {
       padding: 32px;
+      height: 138px;
     }
   }
 
@@ -201,119 +201,61 @@
       color: #eff1ff;
     }
   }
-
-  //   &:hover::after,
-  //   &:focus::after {
-  //     background-color: #0d1c3a;
-  //   }
-
-  //   &:nth-child(n) {
-  //     &:hover,
-  //     &:focus {
-  //       background-color: tomato;
-  //     }
-  //   }
-
-  //   &:nth-child(2n) {
-  //     &:hover,
-  //     &:focus {
-  //       background-color: aliceblue;
-  //     }
-  //   }
-
-  //   &::after {
-  //     position: absolute;
-  //     bottom: -17px;
-  //     z-index: 5;
-  //     --svg: url("data:image/svg+xml,%3Csvg width='350' height='17' viewBox='0 0 350 17' fill='%230a0e24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M350 0.550297L186.986 0.5503C185.348 0.5503 184.304 2.52149 184.646 4.12367C184.781 4.75389 184.852 5.40714 184.852 6.07661C184.852 11.3088 180.526 15.5503 175.19 15.5503C169.855 15.5503 165.529 11.3088 165.529 6.07661C165.529 5.40715 165.6 4.7539 165.735 4.12368C166.077 2.52149 165.033 0.550302 163.395 0.550302L0 0.55035' stroke='%23333852'/%3E%3C/svg%3E");
-  //     content: var(--svg);
-  //     // content: url("../images/icons.svg#icon-ledge-bottom");
-  //     // content: url("../images/Vector.svg");
-  //     @include sizes(100%, 17px);
-  //     // fill: #0d1c3a;
-  //     // background-color: $accent-color;
-  //     // border-radius: 2px;
-  //     background-image: var(--svg);
-  //     // background-color: tomato;
-  //     -webkit-mask: var(--svg);
-  //     mask: var(--svg);
-  //   }
-
-  //   &::after {
-  //     position: absolute;
-  //     bottom: -17px;
-  //     z-index: 5;
-  //     @include sizes(100%, 17px);
-
-  //     --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='31' fill='tomato'%3E%3Cpath d='M2.4 29.998c-.137.003-.27.003-.401 0h.4c5.005-.101 14.006-3.875 14.006-7.25 0-4.617-5.95-3.467-5.95-10.086S12.02 1 20.789 1c8.77 0 10.335 5.989 10.335 11.662 0 5.674-4.384 5.358-4.384 10.086 0 3.291 6.576 7.25 14.406 7.25H2.4Z'%3E%3C/path%3E%3Cpath stroke='%2328344F' d='M1.999 29.998c4.906.105 14.406-3.782 14.406-7.25 0-4.617-5.95-3.467-5.95-10.086S12.02 1 20.789 1c8.77 0 10.335 5.989 10.335 11.662 0 5.674-4.384 5.358-4.384 10.086 0 3.291 6.576 7.25 14.406 7.25H1.999Z'%3E%3C/path%3E%3Cpath stroke='%230D1129' stroke-width='2' d='M42 29.703H0'%3E%3C/path%3E%3C/svg%3E");
-  //     content: var(--svg);
-  //     background-image: var(--svg);
-  //     // background-color: tomato;
-  //     -webkit-mask-image: var(--svg);
-  //     mask-image: var(--svg);
-  //   }
 }
 
-// .integrations__hook {
-//   //   position: absolute;
-//   //   bottom: -16px;
-//   //   z-index: 5;
-//   @include sizes(100%, 17px);
-//   background-color: transparent;
-//   --svg: url("data:image/svg+xml,%3Csvg width='350' height='17' viewBox='0 0 350 17' fill='tomato' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M350 0.550297L186.986 0.5503C185.348 0.5503 184.304 2.52149 184.646 4.12367C184.781 4.75389 184.852 5.40714 184.852 6.07661C184.852 11.3088 180.526 15.5503 175.19 15.5503C169.855 15.5503 165.529 11.3088 165.529 6.07661C165.529 5.40715 165.6 4.7539 165.735 4.12368C166.077 2.52149 165.033 0.550302 163.395 0.550302L0 0.55035' stroke='%23333852'/%3E%3C/svg%3E");
-//   background-image: var(--svg);
-//   //   -webkit-mask: var(--svg);
-//   //   mask: var(--svg);
-//   //   color: transparent;
+.puzzle {
+  position: absolute;
+  z-index: 5;
+  fill: #0a0e24;
+  transition: fill $duration $timing-function;
 
-//   &:hover,
-//   &:focus {
-//     // fill: aqua;
-//     background-color: tomato;
-//   }
-// }
+  & path:last-child {
+    transition: stroke $duration $timing-function;
+  }
+}
 
-// .integrations__ledge {
-//   margin-right: 8px;
-//   //   @include sizes(20px, 20px);
-//   fill: currentColor;
+.puzzle__small {
+  &--top {
+    left: 50%;
+    top: -14px;
+    @include sizes(20px, 15px);
+    transform: translateX(-50%);
+  }
 
-//   //   @apply invisible;
-//   //   @apply absolute;
-//   //   @apply z-10;
-//   fill: rgba(13, 17, 41, 1);
+  &--bottom {
+    left: 50%;
+    bottom: -14px;
+    @include sizes(20px, 15px);
+    transform: translateX(-50%) rotate(180deg);
+  }
+}
 
-//   &_top {
-//     top: -29px;
-//     left: 50%;
-//     margin-left: -20px;
-//   }
+.puzzle__large {
+  &--top {
+    left: 50%;
+    top: -19px;
+    @include sizes(28px, 21px);
+    transform: translateX(-50%);
+  }
 
-//   &_right {
-//     transform: rotate(90deg);
-//     right: -34px;
-//     top: 50%;
-//     margin-top: -20px;
-//   }
+  &--bottom {
+    left: 50%;
+    bottom: -19px;
+    @include sizes(28px, 21px);
+    transform: translateX(-50%) rotate(180deg);
+  }
 
-//   &_left {
-//     transform: rotate(-90deg);
-//     left: -34px;
-//     top: 50%;
-//     margin-top: -20px;
-//   }
+  &--right {
+    top: 50%;
+    right: -23px;
+    @include sizes(28px, 21px);
+    transform: translateY(-50%) rotate(90deg);
+  }
 
-//   &_bottom {
-//     transform: rotate(180deg);
-//     bottom: -29px;
-//     left: 50%;
-//     margin-left: -20px;
-//   }
-// }
-
-// .integrations__test {
-//   @include sizes(100%, 17px);
-//   fill: tomato;
-//   stroke: white;
-//   background-color: aqua;
-// }
+  &--left {
+    top: 50%;
+    left: -23px;
+    @include sizes(28px, 21px);
+    transform: translateY(-50%) rotate(-90deg);
+  }
+}
