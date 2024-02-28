@@ -8,17 +8,15 @@ const makeListBaseMarkup = (items) =>
     .map(({ name, description, icon }) => {
       return `
         <li class="integrations__item">
-          <a href="" class="integrations__link">
-            <div class="integrations__wrap">
-              <h4 class="integrations__option">
-                <svg class="integrations__icon">
-                  <use href="./images/icons.svg#${icon}"></use>
-                </svg>
-                ${name}
-              </h4>
-              <p class="integrations__desc">${description}</p>
-            </div>
-          </a>
+          <h4 class="integrations__option">
+            <svg class="integrations__icon">
+               <use href="./images/icons.svg#${icon}"></use>
+            </svg>
+            <a href="" class="integrations__link">
+               ${name}
+            </a>
+          </h4>
+          <p class="integrations__desc">${description}</p>
         </li>`;
     })
     .join("");

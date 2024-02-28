@@ -55,6 +55,12 @@
 
 .hero__btn {
   @extend %btn;
+
+  &:last-child {
+    @include tablet-min {
+      flex-direction: row-reverse;
+    }
+  }
 }
 
 .hero__btn--active {
@@ -105,7 +111,8 @@
   }
 
   @include tablet-min {
-    margin-left: 4px;
+    margin-left: 0;
+    margin-right: 4px;
     @include sizes(20px, 20px);
   }
 }

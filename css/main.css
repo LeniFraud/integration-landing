@@ -264,6 +264,7 @@ img {
   justify-content: center;
   align-items: center;
   height: 42px;
+  padding-top: 2px;
   font-family: "Clash Grotesk", sans-serif;
   font-size: 14px;
   line-height: 144%;
@@ -285,11 +286,11 @@ img {
 }
 @media screen and (min-width: 768px) {
   .hero__btn {
-    padding: 8px 20px;
+    padding: 10px 20px 8px;
   }
 }
 
-.integrations__item .integrations__option, .integrations__title, .connections__title, .hero__title {
+.integrations__option, .integrations__title, .connections__title, .hero__title {
   font-family: "Clash Grotesk", sans-serif;
   font-weight: 500;
   font-size: 24px;
@@ -298,13 +299,13 @@ img {
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
-  .integrations__item .integrations__option, .integrations__title, .connections__title, .hero__title {
+  .integrations__option, .integrations__title, .connections__title, .hero__title {
     font-size: 32px;
     line-height: 128%;
   }
 }
 @media screen and (min-width: 1440px) {
-  .integrations__item .integrations__option, .integrations__title, .connections__title, .hero__title {
+  .integrations__option, .integrations__title, .connections__title, .hero__title {
     font-size: 36px;
   }
 }
@@ -449,6 +450,12 @@ body {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .hero__btn:last-child {
+    flex-direction: row-reverse;
+  }
+}
+
 .hero__btn--active {
   position: relative;
   z-index: 5;
@@ -495,7 +502,8 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero__icon {
-    margin-left: 4px;
+    margin-left: 0;
+    margin-right: 4px;
     width: 20px;
     height: 20px;
   }
@@ -858,6 +866,10 @@ body {
 
 .integrations__item {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 16px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .integrations__item:not(:last-child) {
@@ -872,9 +884,16 @@ body {
 .integrations__item:hover .puzzle path:last-child, .integrations__item:focus .puzzle path:last-child {
   stroke: #0d1c3a;
 }
+@media screen and (min-width: 390px) {
+  .integrations__item {
+    gap: 8px;
+  }
+}
 @media screen and (min-width: 768px) {
   .integrations__item {
     flex-basis: 50%;
+    padding: 32px;
+    height: 138px;
   }
   .integrations__item:nth-child(odd) {
     border-right: 1px solid #333852;
@@ -902,39 +921,8 @@ body {
     border-bottom: none;
   }
 }
-.integrations__item .integrations__link {
-  display: block;
-  padding: 10px 8px;
-  color: #ffffff;
-  text-decoration: none;
-}
-@media screen and (max-width: 389px) {
-  .integrations__item .integrations__link {
-    height: 80px;
-  }
-}
-@media screen and (min-width: 390px) {
-  .integrations__item .integrations__link {
-    padding: 18px 16px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .integrations__item .integrations__link {
-    padding: 32px;
-    height: 138px;
-  }
-}
-.integrations__item .integrations__wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-@media screen and (min-width: 390px) {
-  .integrations__item .integrations__wrap {
-    gap: 8px;
-  }
-}
-.integrations__item .integrations__option {
+
+.integrations__option {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -944,36 +932,51 @@ body {
   text-align: initial;
 }
 @media screen and (min-width: 390px) {
-  .integrations__item .integrations__option {
+  .integrations__option {
     font-size: 16px;
     line-height: 175%;
   }
 }
 @media screen and (min-width: 768px) {
-  .integrations__item .integrations__option {
+  .integrations__option {
     font-size: 18px;
     line-height: 156%;
   }
 }
-.integrations__item .integrations__icon {
+
+.integrations__icon {
   margin-right: 8px;
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
-.integrations__item .integrations__desc {
+
+.integrations__link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.integrations__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.integrations__desc {
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.01em;
   color: #aeb3cd;
 }
 @media screen and (min-width: 390px) {
-  .integrations__item .integrations__desc {
+  .integrations__desc {
     font-size: 14px;
   }
 }
 @media screen and (min-width: 768px) {
-  .integrations__item .integrations__desc {
+  .integrations__desc {
     color: #eff1ff;
   }
 }

@@ -76,6 +76,10 @@
 
 .integrations__item {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 16px;
   transition: background-color $duration $timing-function;
 
   &:not(:last-child) {
@@ -96,8 +100,18 @@
     }
   }
 
+  @include mobile-min-only {
+    // height: 80px;
+  }
+
+  @include mobile-min {
+    gap: 8px;
+  }
+
   @include tablet-min {
     flex-basis: calc(100% / 2);
+    padding: 32px;
+    height: 138px;
 
     &:nth-child(odd) {
       border-right: 1px solid #333852;
@@ -131,75 +145,59 @@
       border-bottom: none;
     }
   }
+}
 
-  .integrations__link {
-    display: block;
-    padding: 10px 8px;
-    color: $page-text-color;
-    text-decoration: none;
+.integrations__option {
+  @extend %title;
+  @include centered-flex($justify: flex-start);
+  font-size: 14px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+  text-align: initial;
 
-    @include mobile-min-only {
-      height: 80px;
-    }
-
-    @include mobile-min {
-      padding: 18px 16px;
-    }
-
-    @include tablet-min {
-      padding: 32px;
-      height: 138px;
-    }
+  @include mobile-min {
+    font-size: 16px;
+    line-height: 175%;
   }
 
-  .integrations__wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    @include mobile-min {
-      gap: 8px;
-    }
+  @include tablet-min {
+    font-size: 18px;
+    line-height: 156%;
   }
+}
 
-  .integrations__option {
-    @extend %title;
-    @include centered-flex($justify: flex-start);
+.integrations__icon {
+  margin-right: 8px;
+  @include sizes(20px, 20px);
+  fill: currentColor;
+}
+
+.integrations__link {
+  color: $page-text-color;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.integrations__desc {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: #aeb3cd;
+
+  @include mobile-min {
     font-size: 14px;
-    line-height: 130%;
-    letter-spacing: 0.01em;
-    text-align: initial;
-
-    @include mobile-min {
-      font-size: 16px;
-      line-height: 175%;
-    }
-
-    @include tablet-min {
-      font-size: 18px;
-      line-height: 156%;
-    }
   }
 
-  .integrations__icon {
-    margin-right: 8px;
-    @include sizes(20px, 20px);
-    fill: currentColor;
-  }
-
-  .integrations__desc {
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.01em;
-    color: #aeb3cd;
-
-    @include mobile-min {
-      font-size: 14px;
-    }
-
-    @include tablet-min {
-      color: #eff1ff;
-    }
+  @include tablet-min {
+    color: #eff1ff;
   }
 }
 
